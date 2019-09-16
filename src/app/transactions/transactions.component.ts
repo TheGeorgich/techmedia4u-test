@@ -9,37 +9,37 @@ import { Transaction, TransactionsService } from '../services/transactions.servi
 
 export class TransactionsComponent implements OnInit {
 
-  amount: number
-  title: string = ''
+  amount: number;
+  title = '';
 
   constructor(private transactionsService: TransactionsService) { }
 
   ngOnInit() {
   }
 
-  addTransaction(currentBudget: number){
+  addTransaction(currentBudget: number) {
     const transaction: Transaction = {
       amount: this.amount,
       title: this.title,
       type: true,
       date: new Date()
-    }
-    console.log(currentBudget)
-    this.transactionsService.addTransaction(transaction)
-    this.amount = null
-    this.title = ''
+    };
+    console.log(currentBudget);
+    this.transactionsService.addTransaction(transaction);
+    this.amount = null;
+    this.title = '';
   }
 
-  getTransaction(){
+  getTransaction() {
     const transaction: Transaction = {
       amount: this.amount,
       title: this.title,
       type: false,
       date: new Date()
-    }
-    this.transactionsService.addTransaction(transaction)
-    this.amount = null
-    this.title = ''
+    };
+    this.transactionsService.addTransaction(transaction);
+    this.amount = null;
+    this.title = '';
   }
 
   cleanTtansactionList() {
@@ -48,7 +48,7 @@ export class TransactionsComponent implements OnInit {
       title: this.title,
       type: false,
       date: new Date()
-    }
-    this.transactionsService.cleanTtansactionList(transaction)
+    };
+    this.transactionsService.cleanTtansactionList(transaction);
   }
 }

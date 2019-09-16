@@ -8,27 +8,20 @@ import { NgForm } from '@angular/forms';
 })
 export class BudgetFormComponent implements OnInit {
 
-  @Input() public currentBudget: number = 0
-  budget: number
+  currentBudget = 0;
+  budget: number;
 
-  @Output('removeList') cleanTransactionList = new EventEmitter()
-  @Output() budgetAmount = new EventEmitter<number>()
+  @Output() cleanTransactionList = new EventEmitter();
 
-  amountBudget(){
-    this.budgetAmount.emit(this.currentBudget)
-  }
+  constructor() {}
 
-  constructor() { 
-  }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   addBudget(form: NgForm) {
     (this.budget === undefined || this.budget === null) ? alert('add budget') :
     (this.currentBudget = this.budget,
     this.budget = null,
-    this.cleanTransactionList.emit())
+    this.cleanTransactionList.emit());
   }
 
 }
