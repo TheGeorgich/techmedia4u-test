@@ -10,15 +10,36 @@ export interface Transaction {
 @Injectable({providedIn: 'root'})
 
 export class TransactionsService {
+
+  amount: number;
+  title = '';
+
   public transactions: Transaction[] = [];
 
-  addTransaction(transaction: Transaction) {
-    this.transactions.push(transaction);
+  addTransaction() {
+    const transaction: Transaction = {
+      amount: this.amount,
+      title: this.title,
+      type: true,
+      date: new Date()
+    };
+    this.transactions.unshift(transaction);
+    this.amount = null;
+    this.title = '';
   }
 
-  getTransaction(transaction: Transaction) {
-    this.transactions.push(transaction);
+  getTransaction() {
+    const transaction: Transaction = {
+      amount: this.amount,
+      title: this.title,
+      type: false,
+      date: new Date()
+    };
+    this.transactions.unshift(transaction);
+    this.amount = null;
+    this.title = '';
   }
+
   cleanTtansactionList(transaction: Transaction) {
     this.transactions = [];
   }

@@ -1,10 +1,13 @@
 <header class="header">
   <h2>BUDGET APP</h2>
 </header>
+
 <div class="container">
+  <app-budget-form (cleanTransactionList)="cleanTtansactionList($event)"></app-budget-form>
   <app-transactions></app-transactions>
   <app-transactions-list></app-transactions-list>
 </div>
+
 <footer class="footer">
     &copy; Vitaly Struk 2019
 </footer>

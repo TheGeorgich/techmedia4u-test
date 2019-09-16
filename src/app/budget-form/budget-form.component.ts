@@ -1,5 +1,5 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { BudgetService } from '../services/budget.service';
 
 @Component({
   selector: 'app-budget-form',
@@ -7,21 +7,15 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./budget-form.component.scss']
 })
 export class BudgetFormComponent implements OnInit {
-
-  currentBudget = 0;
-  budget: number;
-
+  
   @Output() cleanTransactionList = new EventEmitter();
-
-  constructor() {}
+  
+  constructor(public budgetService: BudgetService) {}
 
   ngOnInit() {}
 
-  addBudget(form: NgForm) {
-    (this.budget === undefined || this.budget === null) ? alert('add budget') :
-    (this.currentBudget = this.budget,
-    this.budget = null,
-    this.cleanTransactionList.emit());
+  removeTransactions() {
+    this.cleanTransactionList.emit()
   }
 
 }

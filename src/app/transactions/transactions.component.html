@@ -1,29 +1,27 @@
-<app-budget-form (budgetAmount)="addTransaction($event)" (cleanTransactionList)="cleanTtansactionList($event)"></app-budget-form>
-
 <div class="main">
   <div class="transaction">
     <input 
       class="transaction-form"
       type="number"
       placeholder="Enter the amount"
-      [(ngModel)]="amount"
+      [(ngModel)]="transactionsService.amount"
     >
     <input
       class="transaction-form"
       type="text"
       placeholder="Enter the description"
-      [(ngModel)]="title"
+      [(ngModel)]="transactionsService.title"
     >
     <div>
       <button
         class="transaction-button" 
-        (click)="addTransaction()"
+        (click)="transactionsService.addTransaction()"
       >
         Deposit funds
       </button>
       <button
         class="transaction-button"
-        (click)="getTransaction()"
+        (click)="transactionsService.getTransaction()"
       >
         Withdraw funds
       </button>

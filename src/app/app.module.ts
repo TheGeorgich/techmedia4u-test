@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { BudgetFormComponent } from './budget-form/budget-form.component';
 import { AddTransactionComponent } from './add-transaction/add-transaction.component';
 import { TransactionDetailsComponent } from './transaction-details/transaction-details.component';
+import { BudgetService } from './services/budget.service';
+import { TransactionsService } from './services/transactions.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,10 @@ import { TransactionDetailsComponent } from './transaction-details/transaction-d
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    BudgetService,
+    TransactionsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
