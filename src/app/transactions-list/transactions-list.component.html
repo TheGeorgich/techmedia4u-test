@@ -1,0 +1,21 @@
+<div class="transactions-list">
+  <ul *ngIf="transactionsService.transactions.length; else noTransactions">
+    <li *ngFor="let transaction of transactionsService.transactions">
+      <span>
+        <strong 
+          class="cash" 
+          [class.cash-receipts]="transaction.type"
+        >
+          {{ transaction.amount }}$
+        </strong>
+        {{ transaction.title }}
+      </span>
+      <small>{{ transaction.date | date: 'medium' }}</small>
+      <!-- <button details-button>details</button> -->
+    </li>
+  </ul>
+
+  <ng-template #noTransactions>
+    <p>No Transactions now</p>
+  </ng-template>
+</div>

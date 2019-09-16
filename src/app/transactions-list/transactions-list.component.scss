@@ -1,0 +1,89 @@
+.transaction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+
+  &-form{
+    width: 100%;
+    max-width: 260px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-left: 15px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  &-button {
+    width: 129px;
+    height: 30px;
+    font-size: 14px;
+    border-radius: 5px;
+    background: #39b54a;
+    margin-left: 3px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.4s ease 0s;
+
+    &:first-child{
+      margin-left: 0;
+    }
+  
+    &:hover{
+      opacity: 0.85;
+      box-shadow: 0px 10px 15px -4px rgba(0, 0, 0, 0.57);
+      transition: all 0.4s ease 0s;
+    }
+  
+    &:active{
+      opacity: 1;
+      box-shadow: none;
+      transition: all 0.4s ease 0s;
+    }
+  }
+  
+}
+.cash {
+  color: red;
+
+  &-receipts {
+    color: green;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 1rem;
+  margin-bottom: 50px;
+
+  li {
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    margin-bottom: .5rem;
+    display: flex;
+    justify-content: space-between; 
+
+    strong {
+      padding-right: 10px;
+    }
+
+    small {
+      padding-left: 20px;
+    }
+  }
+}
+
+.transactions-list{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 10px;
+}

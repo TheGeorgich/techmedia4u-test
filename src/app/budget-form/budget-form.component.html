@@ -1,0 +1,23 @@
+<div class="form-inline justify-content-center mt-5 mb-5 position-relative">
+  <form class="form-group m-auto" (ngSubmit)="addBudget(form)" #form="ngForm">
+    <input
+    class="form-control"
+    type="number"
+    placeholder="Enter current budget"
+    [(ngModel)] = "budget"
+    (keydown.enter)="addBudget(form)"
+    name="budget"
+    required
+    >
+    <button 
+    class="btn btn-outline-success ml-1"
+    type="submit"
+    [disabled]="form.invalid"
+    >
+      Add Budget
+    </button>
+  </form>
+  <div class="current-budget position-absolute">
+    <p class="budget-amount">Current Budget: {{ currentBudget }}$</p>
+  </div>
+</div>
