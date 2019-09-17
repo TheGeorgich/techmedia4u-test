@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BudgetService } from './budget.service';
 import { Router } from '@angular/router';
+import { NotificationService } from './notification.service';
 
 export interface Transaction {
   id: number;
@@ -21,7 +22,11 @@ export class TransactionsService {
 
   public transactions: Transaction[] = [];
 
-  constructor(private budgetService: BudgetService, private router: Router) {}
+  constructor(
+    private budgetService: BudgetService,
+    private router: Router,
+    private notificationService: NotificationService
+  ) {}
 
   addTransaction() {
     const transaction: Transaction = {
@@ -31,7 +36,7 @@ export class TransactionsService {
       type: true,
       date: new Date()
     };
-    this.budgetService.currentBudget === 0 ? alert('Add Budget first!') :
+    this.budgetService.currentBudget === 0 ? this.notificationService.zeroBudget() :
     (
       this.transactions.unshift(transaction),
       this.budgetService.currentBudget = this.budgetService.currentBudget + this.amount,
@@ -48,7 +53,7 @@ export class TransactionsService {
       type: false,
       date: new Date()
     };
-    this.budgetService.currentBudget < this.amount ? alert('Oops! No money no funny') :
+    this.budgetService.currentBudget < this.amount ? this.notificationService.notEnoughMoney() :
     (
       this.transactions.unshift(transaction),
       this.budgetService.currentBudget = this.budgetService.currentBudget - this.amount,

@@ -1,6 +1,7 @@
 <div class="form-inline justify-content-center mt-5 mb-5 position-relative">
   <form class="form-group m-auto" (ngSubmit)="budgetService.addBudget(form); removeTransactionList()" #form="ngForm">
     <input
+    matTooltip="For unlock button type budget amount"
     class="form-control"
     type="number"
     placeholder="Enter current budget"

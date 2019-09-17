@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { NotificationService } from './notification.service';
 
 @Injectable({providedIn: 'root'})
 
@@ -9,6 +10,8 @@ export class BudgetService {
   currentBudget = 0;
   budget: number;
 
+  constructor(private notificationService: NotificationService) {}
+
   addBudget(form: NgForm) {
     this.budget > 0 ?
     (
@@ -16,7 +19,7 @@ export class BudgetService {
       this.currentBudget = this.changeBudget,
       this.budget = null
     ) :
-    alert('incorrect value');
+    this.notificationService.incorrectValue();
   }
 
 }
