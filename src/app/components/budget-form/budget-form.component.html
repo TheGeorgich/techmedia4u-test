@@ -1,11 +1,11 @@
 <div class="form-inline justify-content-center mt-5 mb-5 position-relative">
-  <form class="form-group m-auto" (ngSubmit)="budgetService.addBudget(form)" #form="ngForm">
+  <form class="form-group m-auto" (ngSubmit)="budgetService.addBudget(form); removeTransactionList()" #form="ngForm">
     <input
     class="form-control"
     type="number"
     placeholder="Enter current budget"
     [(ngModel)] = "budgetService.budget"
-    (keydown.enter)="budgetService.addBudget(form); removeTransactions()"
+    (keydown.enter)="budgetService.addBudget(form); removeTransactionList()"
     name="budget"
     required
     >
@@ -13,7 +13,6 @@
     class="btn btn-outline-success ml-1"
     type="submit"
     [disabled]="form.invalid"
-    (click)="removeTransactions()"
     >
       Add Budget
     </button>

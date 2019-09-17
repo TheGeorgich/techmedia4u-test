@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { TransactionsService } from '../services/transactions.service';
+import { Component } from '@angular/core';
+import { TransactionsService } from '../../services/transactions.service';
 
 @Component({
   selector: 'app-transactions',
@@ -7,11 +7,8 @@ import { TransactionsService } from '../services/transactions.service';
   styleUrls: ['./transactions.component.scss']
 })
 
-export class TransactionsComponent implements OnInit {
+export class TransactionsComponent {
 
   constructor(public transactionsService: TransactionsService) { }
-
-  ngOnInit() {
-  }
 
 }

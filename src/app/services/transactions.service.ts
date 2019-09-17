@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BudgetService } from './budget.service';
 
 export interface Transaction {
   amount: number;
@@ -16,6 +17,8 @@ export class TransactionsService {
 
   public transactions: Transaction[] = [];
 
+  constructor(private budgetService: BudgetService) {}
+
   addTransaction() {
     const transaction: Transaction = {
       amount: this.amount,
@@ -23,9 +26,13 @@ export class TransactionsService {
       type: true,
       date: new Date()
     };
-    this.transactions.unshift(transaction);
-    this.amount = null;
-    this.title = '';
+    this.budgetService.currentBudget === 0 ? alert('add budget') :
+    (
+      this.transactions.unshift(transaction),
+      this.budgetService.currentBudget = this.budgetService.currentBudget + this.amount,
+      this.amount = null,
+      this.title = ''
+    );
   }
 
   getTransaction() {
@@ -35,12 +42,22 @@ export class TransactionsService {
       type: false,
       date: new Date()
     };
-    this.transactions.unshift(transaction);
-    this.amount = null;
-    this.title = '';
+    this.budgetService.currentBudget < this.amount ? alert('not anjoy monney') :
+    (
+      this.transactions.unshift(transaction),
+      this.budgetService.currentBudget = this.budgetService.currentBudget - this.amount,
+      this.amount = null,
+      this.title = ''
+    );
   }
 
-  cleanTtansactionList(transaction: Transaction) {
+  removeTransactionsList() {
     this.transactions = [];
   }
+
+  details() {
+    for(let i = 0; i <= 0; i++)
+    console.log(this.budgetService.currentBudget, this.transactions[i])
+  }
+    
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Transaction, TransactionsService } from './services/transactions.service';
+import { TransactionsService } from './services/transactions.service';
 
 @Component({
   selector: 'app-root',
@@ -8,20 +8,9 @@ import { Transaction, TransactionsService } from './services/transactions.servic
 })
 
 export class AppComponent {
+  constructor(public transactionsService: TransactionsService) {}
 
-  amount: number;
-  title = '';
-
-  constructor(private transactionsService: TransactionsService) { }
-  
   cleanTtansactionList() {
-    const transaction: Transaction = {
-      amount: this.amount,
-      title: this.title,
-      type: false,
-      date: new Date()
-    };
-    this.transactionsService.cleanTtansactionList(transaction);
+    this.transactionsService.removeTransactionsList();
   }
-  
 }

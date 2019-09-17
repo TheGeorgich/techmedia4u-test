@@ -3,14 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TransactionsComponent } from './transactions/transactions.component';
-import { TransactionsListComponent } from './transactions-list/transactions-list.component';
+import { TransactionsComponent } from './components/transactions/transactions.component';
+import { TransactionsListComponent } from './components/transactions-list/transactions-list.component';
 import { FormsModule } from '@angular/forms';
-import { BudgetFormComponent } from './budget-form/budget-form.component';
-import { AddTransactionComponent } from './add-transaction/add-transaction.component';
-import { TransactionDetailsComponent } from './transaction-details/transaction-details.component';
-import { BudgetService } from './services/budget.service';
-import { TransactionsService } from './services/transactions.service';
+import { BudgetFormComponent } from './components/budget-form/budget-form.component';
+import { AddTransactionComponent } from './components/add-transaction/add-transaction.component';
+import { TransactionDetailsComponent } from './components/transaction-details/transaction-details.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +24,7 @@ import { TransactionsService } from './services/transactions.service';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [
-    BudgetService,
-    TransactionsService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

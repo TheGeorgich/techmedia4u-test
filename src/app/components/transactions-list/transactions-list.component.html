@@ -11,7 +11,7 @@
         {{ transaction.title }}
       </span>
       <small>{{ transaction.date | date: 'medium' }}</small>
-      <!-- <button details-button>details</button> -->
+      <button (click)="transactionsService.details()" details-button>details</button>
     </li>
   </ul>
 
