@@ -6,7 +6,6 @@ import { NotificationService } from './notification.service';
 
 export class BudgetService {
 
-  changeBudget: any;
   currentBudget = 0;
   budget: number;
 
@@ -15,8 +14,7 @@ export class BudgetService {
   addBudget(form: NgForm) {
     this.budget > 0 ?
     (
-      this.changeBudget = this.budget,
-      this.currentBudget = this.changeBudget,
+      this.currentBudget = this.budget,
       this.budget = null
     ) :
     this.notificationService.incorrectValue();
