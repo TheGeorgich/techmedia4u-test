@@ -7,7 +7,6 @@ import { TransactionsComponent } from './components/transactions/transactions.co
 import { TransactionsListComponent } from './components/transactions-list/transactions-list.component';
 import { FormsModule } from '@angular/forms';
 import { BudgetFormComponent } from './components/budget-form/budget-form.component';
-import { AddTransactionComponent } from './components/add-transaction/add-transaction.component';
 import { TransactionDetailsComponent } from './components/transaction-details/transaction-details.component';
 import { HomeComponent } from './components/home/home.component';
 import { TruncatePipe } from './pipes/text.pipe';
@@ -18,7 +17,6 @@ import { TruncatePipe } from './pipes/text.pipe';
     TransactionsComponent,
     TransactionsListComponent,
     BudgetFormComponent,
-    AddTransactionComponent,
     TransactionDetailsComponent,
     HomeComponent,
     TruncatePipe

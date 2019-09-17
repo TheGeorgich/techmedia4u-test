@@ -31,7 +31,7 @@ export class TransactionsService {
       type: true,
       date: new Date()
     };
-    this.budgetService.currentBudget === 0 ? alert('add budget') :
+    this.budgetService.currentBudget === 0 ? alert('Add Budget first!') :
     (
       this.transactions.unshift(transaction),
       this.budgetService.currentBudget = this.budgetService.currentBudget + this.amount,
@@ -48,7 +48,7 @@ export class TransactionsService {
       type: false,
       date: new Date()
     };
-    this.budgetService.currentBudget < this.amount ? alert('not anjoy monney') :
+    this.budgetService.currentBudget < this.amount ? alert('Oops! No money no funny') :
     (
       this.transactions.unshift(transaction),
       this.budgetService.currentBudget = this.budgetService.currentBudget - this.amount,

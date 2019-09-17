@@ -11,11 +11,11 @@
         {{ transaction.title | truncate:[20] }}
       </span>
       <small>{{ transaction.date | date: 'medium' }}</small>
-      <button (click)="transactionsService.details(transaction.id);" details-button>details</button>
+      <button (click)="transactionsService.details(transaction.id);" class="btn btn-outline-info ml-2">details</button>
     </li>
   </ul>
 
   <ng-template #noTransactions>
-    <p>No Transactions now</p>
+    <p class="text-center h5 m-3">No Transactions now</p>
   </ng-template>
 </div>

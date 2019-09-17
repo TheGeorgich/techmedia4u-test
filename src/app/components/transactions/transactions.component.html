@@ -1,30 +1,38 @@
-<div class="main">
-  <div class="transaction">
-    <input 
-      class="transaction-form"
-      type="number"
-      placeholder="Enter the amount"
-      [(ngModel)]="transactionsService.amount"
-    >
-    <input
-      class="transaction-form"
-      type="text"
-      placeholder="Enter the description"
-      [(ngModel)]="transactionsService.title"
-    >
-    <div>
-      <button
-        class="transaction-button" 
-        (click)="transactionsService.addTransaction()"
+<div class="col-4 justify-content-center m-auto">
+  <form #form="ngForm">
+    <div class="form-group">
+      <input 
+        class="form-control"
+        type="number"
+        placeholder="Enter the amount"
+        [(ngModel)]="transactionsService.amount"
+        name="amount"
+        required
       >
-        Deposit funds
-      </button>
-      <button
-        class="transaction-button"
-        (click)="transactionsService.getTransaction()"
-      >
-        Withdraw funds
-      </button>
     </div>
-  </div>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Enter the description"
+        [(ngModel)]="transactionsService.title"
+        name="title"
+        required
+      >
+    </div>
+    <button
+      class="btn btn-outline-success ml-3 pl-4 pr-4"
+      (click)="transactionsService.addTransaction()"
+      [disabled]="form.invalid"
+    >
+      Deposit funds
+    </button>
+    <button
+      class="btn btn-outline-danger ml-3 pl-4 pr-4"
+      (click)="transactionsService.getTransaction()"
+      [disabled]="form.invalid"
+    >
+      Withdraw funds
+    </button>
+  </form>
 </div>

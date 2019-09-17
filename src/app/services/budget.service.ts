@@ -10,9 +10,13 @@ export class BudgetService {
   budget: number;
 
   addBudget(form: NgForm) {
-    this.changeBudget = this.budget;
-    this.currentBudget = this.changeBudget;
-    this.budget = null;
+    this.budget > 0 ?
+    (
+      this.changeBudget = this.budget,
+      this.currentBudget = this.changeBudget,
+      this.budget = null
+    ) :
+    alert('incorrect value');
   }
 
 }
