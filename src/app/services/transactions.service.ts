@@ -3,7 +3,7 @@ import { BudgetService } from './budget.service';
 import { Router } from '@angular/router';
 
 export interface Transaction {
-  id: number,
+  id: number;
   amount: number;
   title: string;
   type: boolean;
