@@ -12,4 +12,3 @@ export class TransactionsListComponent {
   constructor(public transactionsService: TransactionsService) { }
 
 }
-

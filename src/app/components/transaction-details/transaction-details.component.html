@@ -1,1 +1,44 @@
-<p>transaction-details works!</p>
+<div class="col-6 m-auto pb-5">
+    <p class="text-center h5 p-3"> Current Budget: {{ budgetService.currentBudget }} $</p>
+  <ul 
+    *ngIf="transactionsService.transactionDetail[0]; else noTransaction"
+    class="list-group"
+  >
+    <li
+      *ngIf="transactionsService.transactionDetail[0].type === false; else replenishment"
+      class="list-group-item list-group-item-danger text-center"
+    >
+      <strong>Withdraw funds</strong>
+    </li>
+    <li class="list-group-item list-group-item-info text-center">
+      <strong>Transaction ID:</strong>
+      {{ transactionsService.transactionDetail[0].id }}
+    </li>
+    <li class="list-group-item">
+      <strong>Transaction Amount:</strong>
+      {{ transactionsService.transactionDetail[0].amount }}$
+    </li>
+    <li class="list-group-item">
+      <strong>Transaction Description:</strong>
+      {{ transactionsService.transactionDetail[0].title }}
+    </li>
+    <li class="list-group-item list-group-item-info">
+      <strong>Date:</strong>
+      {{ transactionsService.transactionDetail[0].date | date: 'medium' }}
+    </li>
+  </ul>
+  <button
+    class="btn btn-outline-success mt-3 mb-3 btn-lg btn-block"
+    (click)="goBack()"
+  >
+    Back to Home
+  </button>
+  <ng-template #replenishment>
+    <li class="list-group-item list-group-item-success text-center">
+      <strong>Balance replenishment</strong>
+    </li>
+  </ng-template>
+  <ng-template #noTransaction>
+    <p class="text-center h5">No active Transaction</p>
+  </ng-template>
+</div>

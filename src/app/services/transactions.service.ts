@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BudgetService } from './budget.service';
+import { Router } from '@angular/router';
 
 export interface Transaction {
+  id: number,
   amount: number;
   title: string;
   type: boolean;
@@ -14,13 +16,16 @@ export class TransactionsService {
 
   amount: number;
   title = '';
+  id: number;
+  transactionDetail = [];
 
   public transactions: Transaction[] = [];
 
-  constructor(private budgetService: BudgetService) {}
+  constructor(private budgetService: BudgetService, private router: Router) {}
 
   addTransaction() {
     const transaction: Transaction = {
+      id: Date.now(),
       amount: this.amount,
       title: this.title,
       type: true,
@@ -37,6 +42,7 @@ export class TransactionsService {
 
   getTransaction() {
     const transaction: Transaction = {
+      id: Date.now(),
       amount: this.amount,
       title: this.title,
       type: false,
@@ -55,9 +61,17 @@ export class TransactionsService {
     this.transactions = [];
   }
 
-  details() {
-    for(let i = 0; i <= 0; i++)
-    console.log(this.budgetService.currentBudget, this.transactions[i])
+  details(id: number) {
+    const idx = this.transactions.findIndex(t => t.id === id);
+    const transactionDetails: Transaction = {
+      id: this.transactions[idx].id,
+      amount: this.transactions[idx].amount,
+      title: this.transactions[idx].title,
+      type: this.transactions[idx].type,
+      date: this.transactions[idx].date
+    };
+    this.transactionDetail = [];
+    this.transactionDetail.push(transactionDetails);
+    this.router.navigate(['/details']);
   }
-    
 }

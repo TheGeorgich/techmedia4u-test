@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { BudgetFormComponent } from './components/budget-form/budget-form.component';
 import { AddTransactionComponent } from './components/add-transaction/add-transaction.component';
 import { TransactionDetailsComponent } from './components/transaction-details/transaction-details.component';
+import { HomeComponent } from './components/home/home.component';
+import { TruncatePipe } from './pipes/text.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { TransactionDetailsComponent } from './components/transaction-details/tr
     BudgetFormComponent,
     AddTransactionComponent,
     TransactionDetailsComponent,
+    HomeComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,

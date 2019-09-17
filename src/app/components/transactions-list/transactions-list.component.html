@@ -1,6 +1,6 @@
 <div class="transactions-list">
   <ul *ngIf="transactionsService.transactions.length; else noTransactions">
-    <li *ngFor="let transaction of transactionsService.transactions">
+    <li *ngFor="let transaction of transactionsService.transactions; let i = index">
       <span>
         <strong 
           class="cash" 
@@ -8,10 +8,10 @@
         >
           {{ transaction.amount }}$
         </strong>
-        {{ transaction.title }}
+        {{ transaction.title | truncate:[20] }}
       </span>
       <small>{{ transaction.date | date: 'medium' }}</small>
-      <button (click)="transactionsService.details()" details-button>details</button>
+      <button (click)="transactionsService.details(transaction.id);" details-button>details</button>
     </li>
   </ul>
 
