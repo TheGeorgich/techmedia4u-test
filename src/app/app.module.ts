@@ -10,6 +10,8 @@ import { BudgetFormComponent } from './components/budget-form/budget-form.compon
 import { TransactionDetailsComponent } from './components/transaction-details/transaction-details.component';
 import { HomeComponent } from './components/home/home.component';
 import { TruncatePipe } from './pipes/text.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { TruncatePipe } from './pipes/text.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
