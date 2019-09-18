@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BudgetService } from './budget.service';
 import { NotificationService } from './notification.service';
-import { ArrayType } from '@angular/compiler';
 
 export interface Transaction {
   id: number;
