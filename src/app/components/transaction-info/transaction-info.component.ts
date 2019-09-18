@@ -4,10 +4,10 @@ import { TransactionsService, Transaction } from '../../services/transactions.se
 import { BudgetService } from '../../services/budget.service';
 
 @Component({
-  selector: 'app-transaction-details',
-  templateUrl: './transaction-details.component.html'
+  selector: 'app-transaction-info',
+  templateUrl: './transaction-info.component.html'
 })
-export class TransactionDetailsComponent implements OnInit {
+export class TransactionInfoComponent implements OnInit {
 
   transaction: Transaction;
 
@@ -20,11 +20,11 @@ export class TransactionDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      this.transaction = this.transactionsService.details(+params.id);
+      this.transaction = this.transactionsService.transactionInfo(+params.id);
     });
   }
 
-  goBack() {
+  backToHome() {
     this.router.navigate(['']);
   }
 

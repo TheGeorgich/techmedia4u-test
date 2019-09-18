@@ -8,10 +8,10 @@
         >
           {{ transaction.amount }}$
         </strong>
-        {{ transaction.title | truncate:[10] }}
+        {{ transaction.description | truncate:[10] }}
       </span>
       <small>{{ transaction.date | date: 'medium' }}</small>
-      <button [routerLink]="['', transaction.id]" class="btn btn-outline-info ml-2">details</button>
+      <button [routerLink]="['', transaction.id]" class="btn btn-outline-info ml-2">Info</button>
     </li>
   </ul>
 

@@ -20,7 +20,7 @@
     </li>
     <li class="list-group-item">
       <strong>Transaction Description:</strong>
-      {{ transaction.title }}
+      {{ transaction.description }}
     </li>
     <li class="list-group-item list-group-item-info">
       <strong>Date:</strong>
@@ -29,7 +29,7 @@
   </ul>
   <button
     class="btn btn-outline-success mt-3 mb-3 btn-lg btn-block"
-    (click)="goBack()"
+    (click)="backToHome()"
   >
     Back to Home
   </button>

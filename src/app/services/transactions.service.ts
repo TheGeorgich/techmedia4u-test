@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BudgetService } from './budget.service';
 import { NotificationService } from './notification.service';
+import { ArrayType } from '@angular/compiler';
 
 export interface Transaction {
   id: number;
   amount: number;
-  title: string;
+  description: string;
   type: boolean;
   date: any;
 }
@@ -15,8 +16,7 @@ export interface Transaction {
 export class TransactionsService {
 
   amount: number;
-  title = '';
-  transactionDetail = [];
+  description = '';
 
   public transactions: Transaction[] = [];
 
@@ -25,37 +25,34 @@ export class TransactionsService {
     private notificationService: NotificationService,
   ) {}
 
-  addTransaction() {
+  addTransaction(typeTransaction: boolean) {
     const transaction: Transaction = {
       id: Date.now(),
       amount: this.amount,
-      title: this.title,
-      type: true,
+      description: this.description,
+      type: typeTransaction,
       date: new Date()
     };
-    this.budgetService.currentBudget === 0 ? this.notificationService.zeroBudget() :
+    typeTransaction === true ? this.income(transaction) : this.expense(transaction);
+    this.amount = null;
+    this.description = '';
+  }
+
+  income(transaction: any) {
+    this.budgetService.currentBudget === 0 ?
+    this.notificationService.zeroBudget() :
     (
       this.transactions.unshift(transaction),
-      this.budgetService.currentBudget = this.budgetService.currentBudget + this.amount,
-      this.amount = null,
-      this.title = ''
+      this.budgetService.currentBudget = this.budgetService.currentBudget + this.amount
     );
   }
 
-  getTransaction() {
-    const transaction: Transaction = {
-      id: Date.now(),
-      amount: this.amount,
-      title: this.title,
-      type: false,
-      date: new Date()
-    };
-    this.budgetService.currentBudget < this.amount ? this.notificationService.notEnoughMoney() :
+  expense(transaction: any) {
+    this.budgetService.currentBudget < this.amount ?
+    this.notificationService.notEnoughMoney() :
     (
       this.transactions.unshift(transaction),
-      this.budgetService.currentBudget = this.budgetService.currentBudget - this.amount,
-      this.amount = null,
-      this.title = ''
+      this.budgetService.currentBudget = this.budgetService.currentBudget - this.amount
     );
   }
 
@@ -63,7 +60,7 @@ export class TransactionsService {
     this.transactions = [];
   }
 
-  details(id: number) {
+  transactionInfo(id: number) {
     return this.transactions.find(t => t.id === id);
   }
 }

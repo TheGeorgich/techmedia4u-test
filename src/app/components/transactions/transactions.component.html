@@ -17,21 +17,21 @@
         class="form-control"
         type="text"
         placeholder="Enter the description"
-        [(ngModel)]="transactionsService.title"
-        name="title"
+        [(ngModel)]="transactionsService.description"
+        name="description"
         required
       >
     </div>
     <button
       class="btn btn-outline-success ml-3 pl-4 pr-4"
-      (click)="transactionsService.addTransaction()"
+      (click)="transactionsService.addTransaction(true)"
       [disabled]="form.invalid"
     >
       Deposit funds
     </button>
     <button
       class="btn btn-outline-danger ml-3 pl-4 pr-4"
-      (click)="transactionsService.getTransaction()"
+      (click)="transactionsService.addTransaction()"
       [disabled]="form.invalid"
     >
       Withdraw funds
