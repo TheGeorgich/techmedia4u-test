@@ -17,7 +17,6 @@ export class TransactionsService {
 
   amount: number;
   title = '';
-  id: number;
   transactionDetail = [];
 
   public transactions: Transaction[] = [];
@@ -68,13 +67,7 @@ export class TransactionsService {
 
   details(id: number) {
     const idx = this.transactions.findIndex(t => t.id === id);
-    const transactionDetails: Transaction = {
-      id: this.transactions[idx].id,
-      amount: this.transactions[idx].amount,
-      title: this.transactions[idx].title,
-      type: this.transactions[idx].type,
-      date: this.transactions[idx].date
-    };
+    const transactionDetails: Transaction = { ...this.transactions[idx] };
     this.transactionDetail = [];
     this.transactionDetail.push(transactionDetails);
     this.router.navigate(['/details']);
