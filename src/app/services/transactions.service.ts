@@ -17,7 +17,6 @@ export class TransactionsService {
 
   amount: number;
   title = '';
-  id: number;
   transactionDetail = [];
 
   public transactions: Transaction[] = [];
