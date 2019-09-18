@@ -1,23 +1,31 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { TransactionsService } from 'src/app/services/transactions.service';
-import { BudgetService } from 'src/app/services/budget.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+import { TransactionsService, Transaction } from '../../services/transactions.service';
+import { BudgetService } from '../../services/budget.service';
 
 @Component({
   selector: 'app-transaction-details',
-  templateUrl: './transaction-details.component.html',
-  styleUrls: ['./transaction-details.component.scss']
+  templateUrl: './transaction-details.component.html'
 })
-export class TransactionDetailsComponent {
+export class TransactionDetailsComponent implements OnInit {
+
+  transaction: Transaction;
 
   constructor(
+    public transactionsService: TransactionsService,
+    private route: ActivatedRoute,
     private router: Router,
-    private transactionsService: TransactionsService,
-    private budgetService: BudgetService
+    public budgetService: BudgetService,
   ) { }
 
+  ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      this.transaction = this.transactionsService.details(+params.id);
+    });
+  }
+
   goBack() {
-    this.router.navigate(['/']);
+    this.router.navigate(['']);
   }
 
 }

@@ -1,30 +1,30 @@
 <div class="col-6 m-auto pb-5">
     <p class="text-center h5 p-3"> Current Budget: {{ budgetService.currentBudget }} $</p>
   <ul 
-    *ngIf="transactionsService.transactionDetail[0]; else noTransaction"
+    *ngIf="transaction; else noTransaction"
     class="list-group"
   >
     <li
-      *ngIf="transactionsService.transactionDetail[0].type === false; else replenishment"
+      *ngIf="transaction.type === false; else replenishment"
       class="list-group-item list-group-item-danger text-center"
     >
       <strong>Withdraw funds</strong>
     </li>
     <li class="list-group-item list-group-item-info text-center">
       <strong>Transaction ID:</strong>
-      {{ transactionsService.transactionDetail[0].id }}
+      {{ transaction.id }}
     </li>
     <li class="list-group-item">
       <strong>Transaction Amount:</strong>
-      {{ transactionsService.transactionDetail[0].amount }}$
+      {{ transaction.amount }}$
     </li>
     <li class="list-group-item">
       <strong>Transaction Description:</strong>
-      {{ transactionsService.transactionDetail[0].title }}
+      {{ transaction.title }}
     </li>
     <li class="list-group-item list-group-item-info">
       <strong>Date:</strong>
-      {{ transactionsService.transactionDetail[0].date | date: 'medium' }}
+      {{ transaction.date | date: 'medium' }}
     </li>
   </ul>
   <button
