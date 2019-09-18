@@ -3,8 +3,7 @@ import { TransactionsService } from '../../services/transactions.service';
 
 @Component({
   selector: 'app-transactions',
-  templateUrl: './transactions.component.html',
-  styleUrls: ['./transactions.component.scss']
+  templateUrl: './transactions.component.html'
 })
 
 export class TransactionsComponent {

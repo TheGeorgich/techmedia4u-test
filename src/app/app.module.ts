@@ -7,7 +7,7 @@ import { TransactionsComponent } from './components/transactions/transactions.co
 import { TransactionsListComponent } from './components/transactions-list/transactions-list.component';
 import { FormsModule } from '@angular/forms';
 import { BudgetFormComponent } from './components/budget-form/budget-form.component';
-import { TransactionDetailsComponent } from './components/transaction-details/transaction-details.component';
+import { TransactionInfoComponent } from './components/transaction-info/transaction-info.component';
 import { HomeComponent } from './components/home/home.component';
 import { TruncatePipe } from './pipes/text.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,7 +19,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     TransactionsComponent,
     TransactionsListComponent,
     BudgetFormComponent,
-    TransactionDetailsComponent,
+    TransactionInfoComponent,
     HomeComponent,
     TruncatePipe
   ],
