@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BudgetService } from './budget.service';
-import { Router } from '@angular/router';
 import { NotificationService } from './notification.service';
 
 export interface Transaction {
@@ -23,8 +22,7 @@ export class TransactionsService {
 
   constructor(
     private budgetService: BudgetService,
-    private router: Router,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
   ) {}
 
   addTransaction() {
@@ -66,10 +64,6 @@ export class TransactionsService {
   }
 
   details(id: number) {
-    const idx = this.transactions.findIndex(t => t.id === id);
-    const transactionDetails: Transaction = { ...this.transactions[idx] };
-    this.transactionDetail = [];
-    this.transactionDetail.push(transactionDetails);
-    this.router.navigate(['/details']);
+    return this.transactions.find(t => t.id === id);
   }
 }

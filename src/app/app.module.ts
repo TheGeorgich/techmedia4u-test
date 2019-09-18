@@ -11,7 +11,7 @@ import { TransactionDetailsComponent } from './components/transaction-details/tr
 import { HomeComponent } from './components/home/home.component';
 import { TruncatePipe } from './pipes/text.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
