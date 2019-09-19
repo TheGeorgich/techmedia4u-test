@@ -1,5 +1,9 @@
 <header class="header">
-  <h3>BUDGET APP</h3>
+  <h3>{{ 'Title' | translate }}</h3>
+  <div class="localization">
+    <button (click)="switchLanguage('en')">en</button>
+    <button (click)="switchLanguage('ru')">ru</button>
+  </div>
 </header>
 
 <div class="container">

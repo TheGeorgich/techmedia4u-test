@@ -1,10 +1,10 @@
 <div class="form-inline justify-content-center mt-5 mb-5 position-relative">
   <form class="form-group m-auto" (ngSubmit)="budgetService.addBudget(form); removeTransactionList()" #form="ngForm">
     <input
-    matTooltip="For unlock button type budget amount"
+    matTooltip="{{ 'TooltipBudget' | translate }}"
     class="form-control"
     type="number"
-    placeholder="Enter current budget"
+    placeholder="{{ 'BudgetFormComponent.InputBudget' | translate }}"
     [(ngModel)] = "budgetService.budget"
     (keydown.enter)="budgetService.addBudget(form); removeTransactionList()"
     name="budget"
@@ -15,10 +15,10 @@
     type="submit"
     [disabled]="form.invalid"
     >
-      Add Budget
+      {{ 'BudgetFormComponent.BudgetButton' | translate }}
     </button>
   </form>
   <div class="current-budget position-absolute">
-    <p>Current Budget: {{ budgetService.currentBudget }}$</p>
+    <p>{{ 'CurrentBudget' | translate }}: {{ budgetService.currentBudget }}$</p>
   </div>
 </div>

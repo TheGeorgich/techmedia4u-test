@@ -2,10 +2,10 @@
   <form #form="ngForm">
     <div class="form-group">
       <input
-        matTooltip="Please type transaction amount"
+        matTooltip="{{ 'TooltipAmount' | translate }}"
         class="form-control"
         type="number"
-        placeholder="Enter the amount"
+        placeholder="{{ 'TransactionsComponent.InputAmount' | translate }}"
         [(ngModel)]="transactionsService.amount"
         name="amount"
         required
@@ -13,10 +13,10 @@
     </div>
     <div class="form-group">
       <input
-        matTooltip="Please type transaction description"
+        matTooltip="{{ 'TooltipDescription' | translate }}"
         class="form-control"
         type="text"
-        placeholder="Enter the description"
+        placeholder="{{ 'TransactionsComponent.InputDesctiprion' | translate }}"
         [(ngModel)]="transactionsService.description"
         name="description"
         required
@@ -27,14 +27,14 @@
       (click)="transactionsService.addTransaction(true)"
       [disabled]="form.invalid"
     >
-      Deposit funds
+    {{ 'TransactionsComponent.ButtonDeposit' | translate }}
     </button>
     <button
       class="btn btn-outline-danger ml-3 pl-4 pr-4"
       (click)="transactionsService.addTransaction(false)"
       [disabled]="form.invalid"
     >
-      Withdraw funds
+    {{ 'TransactionsComponent.ButtonWithdraw' | translate }}
     </button>
   </form>
 </div>
