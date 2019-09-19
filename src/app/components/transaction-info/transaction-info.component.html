@@ -1,5 +1,5 @@
 <div class="col-6 m-auto pb-5">
-    <p class="text-center h5 p-3"> Current Budget: {{ budgetService.currentBudget }} $</p>
+    <p class="text-center h5 p-3"> {{ 'CurrentBudget' | translate }}: {{ budgetService.currentBudget }} $</p>
   <ul 
     *ngIf="transaction; else noTransaction"
     class="list-group"
@@ -8,22 +8,22 @@
       *ngIf="transaction.type === false; else replenishment"
       class="list-group-item list-group-item-danger text-center"
     >
-      <strong>Withdraw funds</strong>
+      <strong>{{ 'TransactionInfoComponent.TransactionExpense' | translate }}</strong>
     </li>
     <li class="list-group-item list-group-item-info text-center">
-      <strong>Transaction ID:</strong>
+      <strong>{{ 'TransactionInfoComponent.Id' | translate }}:</strong>
       {{ transaction.id }}
     </li>
     <li class="list-group-item">
-      <strong>Transaction Amount:</strong>
+      <strong>{{ 'TransactionInfoComponent.Amount' | translate }}:</strong>
       {{ transaction.amount }}$
     </li>
     <li class="list-group-item">
-      <strong>Transaction Description:</strong>
+      <strong>{{ 'TransactionInfoComponent.Description' | translate }}:</strong>
       {{ transaction.description }}
     </li>
     <li class="list-group-item list-group-item-info">
-      <strong>Date:</strong>
+      <strong>{{ 'TransactionInfoComponent.Date' | translate }}:</strong>
       {{ transaction.date | date: 'medium' }}
     </li>
   </ul>
@@ -31,14 +31,14 @@
     class="btn btn-outline-success mt-3 mb-3 btn-lg btn-block"
     (click)="backToHome()"
   >
-    Back to Home
+  {{ 'TransactionInfoComponent.HomeButton' | translate }}
   </button>
   <ng-template #replenishment>
     <li class="list-group-item list-group-item-success text-center">
-      <strong>Balance replenishment</strong>
+      <strong>{{ 'TransactionInfoComponent.TransactionIncome' | translate }}</strong>
     </li>
   </ng-template>
   <ng-template #noTransaction>
-    <p class="text-center h5">No active Transaction</p>
+    <p class="text-center h5">{{ 'TransactionList' | translate }}</p>
   </ng-template>
 </div>

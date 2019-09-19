@@ -1,0 +1,30 @@
+{ 
+  "Title": "Планировщик Бюджета",
+  "CurrentBudget" : "Текущий бюджет",
+  "TransactionList" : "Нет активных транзакций",
+  "TooltipBudget" : "Для разблокировки кнопки введите значение",
+  "TooltipAmount" : "Введите сумму",
+  "TooltipDescription" : "Введите описание",
+  "BudgetFormComponent" : {
+    "BudgetButton" : "Добавить Бюджет",
+    "InputBudget" : "Введите бюджет"
+  },
+  "TransactionInfoComponent" : {
+    "TransactionExpense" : "Вывод средств",
+    "TransactionIncome" : "Поступления",
+    "Id" : "ID Транзакции",
+    "Amount" : "Сумма",
+    "Description" : "Описание",
+    "Date" : "Дата",
+    "HomeButton" : "Домашняя страница"
+  },
+  "TransactionsComponent" : {
+    "InputAmount" : "Введите сумму",
+    "InputDesctiprion" : "Введите описание",
+    "ButtonDeposit" : "Зачислить",
+    "ButtonWithdraw" : "Вывести"
+  },
+  "TransactionsListComponent" : {
+    "Info" : "Инфо"
+  }
+}

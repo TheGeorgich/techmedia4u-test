@@ -1,0 +1,30 @@
+{
+  "Title": "BUDGET APP",
+  "CurrentBudget" : "Current Budget",
+  "TooltipBudget" : "For unlock button type budget amount",
+  "TooltipAmount" : "Please type transaction amount",
+  "TooltipDescription" : "Please type transaction description",
+  "TransactionList" : "No active Transaction",
+  "BudgetFormComponent" : {
+    "BudgetButton" : "Add Budget",
+    "InputBudget" : "Enter current budget"
+  },
+  "TransactionInfoComponent" : {
+    "TransactionExpense" : "Withdraw funds",
+    "TransactionIncome" : "Balance replenishment",
+    "Id" : "Transaction ID",
+    "Amount" : "Transaction Amount",
+    "Description" : "Transaction Description",
+    "Date" : "Date",
+    "HomeButton" : "Back to Home"
+  },
+  "TransactionsComponent" : {
+    "InputAmount" : "Enter the amount",
+    "InputDesctiprion" : "Enter the description",
+    "ButtonDeposit" : "Deposit funds",
+    "ButtonWithdraw" : "Withdraw funds"
+  },
+  "TransactionsListComponent" : {
+    "Info" : "Info"
+  }
+}

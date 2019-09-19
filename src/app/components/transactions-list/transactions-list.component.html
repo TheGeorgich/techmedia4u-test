@@ -11,11 +11,16 @@
         {{ transaction.description | truncate:[10] }}
       </span>
       <small>{{ transaction.date | date: 'medium' }}</small>
-      <button [routerLink]="['', transaction.id]" class="btn btn-outline-info ml-2">Info</button>
+      <button
+        [routerLink]="['', transaction.id]"
+        class="btn btn-outline-info ml-2"
+      >
+        {{ 'TransactionsListComponent.Info' | translate }}
+      </button>
     </li>
   </ul>
 
   <ng-template #noTransactions>
-    <p class="text-center h5 m-3">No Transactions now</p>
+    <p class="text-center h5 m-3">{{ 'TransactionList' | translate }}</p>
   </ng-template>
 </div>
