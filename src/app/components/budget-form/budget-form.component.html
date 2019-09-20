@@ -1,12 +1,12 @@
 <div class="form-inline justify-content-center mt-5 mb-5 position-relative">
-  <form class="form-group m-auto" (ngSubmit)="budgetService.addBudget(form); removeTransactionList()" #form="ngForm">
+  <form class="form-group m-auto" (ngSubmit)="budgetService.addBudget(form)" #form="ngForm">
     <input
     matTooltip="{{ 'TooltipBudget' | translate }}"
     class="form-control"
     type="number"
     placeholder="{{ 'BudgetFormComponent.InputBudget' | translate }}"
     [(ngModel)] = "budgetService.budget"
-    (keydown.enter)="budgetService.addBudget(form); removeTransactionList()"
+    (keydown.enter)="budgetService.addBudget(form)"
     name="budget"
     required
     >
