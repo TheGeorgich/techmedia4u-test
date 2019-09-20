@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TransactionsComponent } from './components/transactions/transactions.component';
+import { AddTransactionComponent } from './components/add-transaction/add-transaction.component';
 import { TransactionsListComponent } from './components/transactions-list/transactions-list.component';
 import { FormsModule } from '@angular/forms';
 import { BudgetFormComponent } from './components/budget-form/budget-form.component';
@@ -20,7 +20,7 @@ import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
-    TransactionsComponent,
+    AddTransactionComponent,
     TransactionsListComponent,
     BudgetFormComponent,
     TransactionInfoComponent,

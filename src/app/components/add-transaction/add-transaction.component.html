@@ -5,7 +5,7 @@
         matTooltip="{{ 'TooltipAmount' | translate }}"
         class="form-control"
         type="number"
-        placeholder="{{ 'TransactionsComponent.InputAmount' | translate }}"
+        placeholder="{{ 'AddTransactionComponent.InputAmount' | translate }}"
         [(ngModel)]="transactionsService.amount"
         name="amount"
         required
@@ -16,7 +16,7 @@
         matTooltip="{{ 'TooltipDescription' | translate }}"
         class="form-control"
         type="text"
-        placeholder="{{ 'TransactionsComponent.InputDesctiprion' | translate }}"
+        placeholder="{{ 'AddTransactionComponent.InputDesctiprion' | translate }}"
         [(ngModel)]="transactionsService.description"
         name="description"
         required
@@ -27,14 +27,14 @@
       (click)="transactionsService.addTransaction(true)"
       [disabled]="form.invalid"
     >
-    {{ 'TransactionsComponent.ButtonDeposit' | translate }}
+    {{ 'AddTransactionComponent.ButtonDeposit' | translate }}
     </button>
     <button
       class="btn btn-outline-danger ml-3 pl-4 pr-4"
       (click)="transactionsService.addTransaction(false)"
       [disabled]="form.invalid"
     >
-    {{ 'TransactionsComponent.ButtonWithdraw' | translate }}
+    {{ 'AddTransactionComponent.ButtonWithdraw' | translate }}
     </button>
   </form>
 </div>

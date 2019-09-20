@@ -2,7 +2,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { BudgetService } from '../../services/budget.service';
 
 @Component({
-  selector: 'app-budget-form',
+  selector: 'budget-form',
   templateUrl: './budget-form.component.html',
   styleUrls: ['./budget-form.component.scss']
 })

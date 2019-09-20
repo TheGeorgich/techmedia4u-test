@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TransactionsService } from '../../services/transactions.service';
 
 @Component({
-  selector: 'app-transactions-list',
+  selector: 'transactions-list',
   templateUrl: './transactions-list.component.html',
   styleUrls: ['./transactions-list.component.scss']
 })
