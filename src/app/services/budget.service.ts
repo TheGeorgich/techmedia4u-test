@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { NotificationService } from './notification.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({providedIn: 'root'})
 
@@ -9,15 +8,16 @@ export class BudgetService {
   currentBudget = 0;
   budget: number;
 
-  constructor(private notificationService: NotificationService) {}
+  constructor(private toastr: ToastrService) {}
 
-  addBudget(form: NgForm) {
+  addBudget() {
     this.budget > 0 ?
     (
       this.currentBudget = this.budget,
-      this.budget = null
+      this.budget = null,
+      this.toastr.success('Budget added')
     ) :
-    this.notificationService.incorrectValue();
+    this.toastr.error('Incorrect value');
   }
 
 }
