@@ -12,12 +12,14 @@ export class TransactionsService {
   description = '';
 
   public transactions: Array<Transaction> = [];
-  private transactionsObs = new BehaviorSubject<Array<Transaction>>([]);
+  public transactionsObs = new BehaviorSubject<Array<Transaction>>([]);
 
   constructor(
     private budgetService: BudgetService,
     private toastr: ToastrService,
-  ) {}
+  ) {
+      budgetService.budgetChange.subscribe(() => this.transactions = []);
+    }
 
     addTransaction(typeTransaction: boolean) {
       const transaction: Transaction = {
@@ -51,10 +53,6 @@ export class TransactionsService {
       this.budgetService.currentBudget = this.budgetService.currentBudget - this.amount,
       this.toastr.success('Transaction expense added')
     );
-  }
-
-  removeTransactionsList() {
-    this.transactions = [];
   }
 
   transactionInfo(id: number) {
