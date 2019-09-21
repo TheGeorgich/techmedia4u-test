@@ -1,28 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { TransactionsService } from '../../services/transactions.service';
 import { BudgetService } from '../../services/budget.service';
 import { Transaction } from '../../models/transaction';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-transaction-info',
   templateUrl: './transaction-info.component.html'
 })
-export class TransactionInfoComponent implements OnInit {
+export class TransactionInfoComponent implements OnInit, OnDestroy {
 
   transaction: Transaction;
 
+  private subsctiption: Subscription;
+
   constructor(
-    public transactionsService: TransactionsService,
+    private transactionsService: TransactionsService,
     private route: ActivatedRoute,
     private router: Router,
     public budgetService: BudgetService,
   ) { }
 
   ngOnInit() {
-    this.route.params.subscribe((params: Params) => {
+    this.subsctiption = this.route.params.subscribe((params: Params) => {
       this.transaction = this.transactionsService.transactionInfo(+params.id);
     });
+  }
+
+  ngOnDestroy() {
+    this.subsctiption.unsubscribe();
   }
 
   backToHome() {

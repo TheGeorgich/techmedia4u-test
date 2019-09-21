@@ -29,31 +29,30 @@ export class TransactionsService {
         type: typeTransaction,
         date: new Date()
       };
-      typeTransaction === true ? this.income(transaction) : this.expense(transaction);
+
+      typeTransaction === true ? 
+      (
+        // Income Transaction
+        this.budgetService.currentBudget === 0 ?
+        this.toastr.info('Add you budget first') :
+      (
+        this.transactions.unshift(transaction),
+        this.budgetService.currentBudget = this.budgetService.currentBudget + this.amount,
+        this.toastr.success('Funds contributed')
+      )) : 
+      ( 
+        // Expense Transaction
+        this.budgetService.currentBudget < this.amount ?
+        this.toastr.error('Insufficient funds') :
+      (
+        this.transactions.unshift(transaction),
+        this.budgetService.currentBudget = this.budgetService.currentBudget - this.amount,
+        this.toastr.success('Transaction expense added')
+      ));
       this.transactionsObs.next(this.transactions);
       this.amount = null;
       this.description = '';
     }
-
-  income(transaction: any) {
-    this.budgetService.currentBudget === 0 ?
-    this.toastr.info('Add you budget first') :
-    (
-      this.transactions.unshift(transaction),
-      this.budgetService.currentBudget = this.budgetService.currentBudget + this.amount,
-      this.toastr.success('Funds contributed')
-    );
-  }
-
-  expense(transaction: any) {
-    this.budgetService.currentBudget < this.amount ?
-    this.toastr.error('Insufficient funds') :
-    (
-      this.transactions.unshift(transaction),
-      this.budgetService.currentBudget = this.budgetService.currentBudget - this.amount,
-      this.toastr.success('Transaction expense added')
-    );
-  }
 
   transactionInfo(id: number) {
     return this.transactionsObs.getValue().find(t => t.id === id);
