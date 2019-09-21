@@ -32,8 +32,4 @@ export class TransactionInfoComponent implements OnInit, OnDestroy {
     this.subsctiption.unsubscribe();
   }
 
-  backToHome() {
-    this.router.navigate(['']);
-  }
-
 }

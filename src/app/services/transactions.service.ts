@@ -30,7 +30,7 @@ export class TransactionsService {
         date: new Date()
       };
 
-      typeTransaction === true ? 
+      typeTransaction === true ?
       (
         // Income Transaction
         this.budgetService.currentBudget === 0 ?
@@ -39,8 +39,8 @@ export class TransactionsService {
         this.transactions.unshift(transaction),
         this.budgetService.currentBudget = this.budgetService.currentBudget + this.amount,
         this.toastr.success('Funds contributed')
-      )) : 
-      ( 
+      )) :
+      (
         // Expense Transaction
         this.budgetService.currentBudget < this.amount ?
         this.toastr.error('Insufficient funds') :
