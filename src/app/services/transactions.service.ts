@@ -21,21 +21,21 @@ export class TransactionsService {
       budgetService.budgetChange.subscribe(() => this.transactions = []);
     }
 
-    addTransaction(typeTransaction: boolean) {
-      const transaction: Transaction = {
-        id: Date.now(),
-        amount: this.amount,
-        description: this.description,
-        type: typeTransaction,
-        date: new Date()
-      };
-      typeTransaction === true ? this.income(transaction) : this.expense(transaction);
-      this.transactionsObs.next(this.transactions);
-      this.amount = null;
-      this.description = '';
-    }
+  addTransaction(typeTransaction: boolean) {
+    const transaction: Transaction = {
+      id: Date.now(),
+      amount: this.amount,
+      description: this.description,
+      type: typeTransaction,
+      date: new Date()
+    };
+    typeTransaction === true ? this.income(transaction) : this.expense(transaction);
+    this.transactionsObs.next(this.transactions);
+    this.amount = null;
+    this.description = '';
+  }
 
-  income(transaction: any) {
+  private income(transaction: any) {
     this.budgetService.currentBudget === 0 ?
     this.toastr.info('Add you budget first') :
     (
@@ -45,7 +45,7 @@ export class TransactionsService {
     );
   }
 
-  expense(transaction: any) {
+  private expense(transaction: any) {
     this.budgetService.currentBudget < this.amount ?
     this.toastr.error('Insufficient funds') :
     (

@@ -16,7 +16,7 @@ export class TransactionInfoComponent implements OnInit, OnDestroy {
   private subsctiption: Subscription;
 
   constructor(
-    public transactionsService: TransactionsService,
+    private transactionsService: TransactionsService,
     private route: ActivatedRoute,
     public budgetService: BudgetService,
   ) { }
